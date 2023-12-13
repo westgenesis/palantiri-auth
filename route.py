@@ -1,5 +1,6 @@
 from app import app
-import api.user
+from flask import Flask, request
+import api.apikeys
 
 
 def init():
@@ -9,8 +10,17 @@ def init():
     # app.add_url_rule("/login", methods=["POST"], view_func=api.user.user_login)
     # app.add_url_rule("/update", methods=["POST"], view_func=api.user.user_update)
     # app.add_url_rule("/delete", methods=["POST"], view_func=api.user.user_delete)
-
+    # app = Flask(__name__)
     # auth
-    app.add_url_rule("/generate", methods=["POST"], view_func=api.user.generate)
-    app.add_url_rule("/auth", methods=["POST"], view_func=api.user.auth)
+
+    # @app.route('/generate', methods=['POST'])
+    # def generate():
+    #     api.apikeys.generate_api_key()
+    #
+    # @app.route('/auth', methods=['POST'])
+    # def auth():
+    #     data = request.form.get("sha")
+    #     api.apikeys.auth(data)
+    app.add_url_rule("/generate", methods=["POST"], view_func=api.apikeys.generate_api_key)
+    app.add_url_rule("/auth", methods=["POST"], view_func=api.apikeys.auth)
     return
