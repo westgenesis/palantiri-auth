@@ -38,9 +38,3 @@ def decrypt(encrypted, password):
         data += num.to_bytes(64, "little")
 
     return zlib.decompress(data[:length])
-
-# if __name__ == '__main__':
-#     password = "131412"
-#
-#     d = decrypt(encrypt(secrets.token_hex(16).encode(), password), password)
-#     print(d)

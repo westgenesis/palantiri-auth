@@ -1,22 +1,22 @@
-from flask import request
+from flask import request, jsonify
 
 from common.sha265_operate import decrypt
 from common.sha265_operate import encrypt
 import secrets
 
 password = "412312"
-def auth(sha256_token):
-    print("#########################################")
-    print(sha256_token)
-    print("#########################################")
+
+
+def auth():
+    sha256_token = request.values.get("sha", "").strip()
     key = decrypt(sha256_token, password)
     # print(key)
     with open("api_key.txt", 'r', encoding="utf-8") as f:
         for line in f:
             if line == key:
-                return 200
+                return jsonify({""}), 200
             else:
-                return 500
+                return jsonify({""}), 500
 
 
 def generate_api_key():
