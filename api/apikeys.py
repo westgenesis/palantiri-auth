@@ -10,13 +10,12 @@ password = "412312"
 def auth():
     sha256_token = request.values.get("sha", "").strip()
     key = decrypt(sha256_token, password)
-    # print(key)
     with open("api_key.txt", 'r', encoding="utf-8") as f:
         for line in f:
             if line == key:
                 return jsonify({""}), 200
             else:
-                return jsonify({""}), 500
+                return jsonify({""}), 401
 
 
 def generate_api_key():

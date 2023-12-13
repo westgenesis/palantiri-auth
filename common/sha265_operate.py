@@ -20,11 +20,7 @@ def encrypt(data, password, compress_level=1):
 
 
 def decrypt(encrypted, password):
-    # print(password)
-    encrypted = encrypted[1:]
     sha256 = encrypted[:64]
-    # print(sha256)
-    # print(hashlib.sha256(password.encode("utf-8")).hexdigest().encode())
     if hashlib.sha256(password.encode("utf-8")).hexdigest().encode() != sha256:
         raise TypeError("Invalid password")
     mask = hashlib.sha256((password * 2).encode("utf-8")).hexdigest()
