@@ -46,7 +46,7 @@ from common.md5_operate import get_md5
 #         user = storage.user.get_user(username, md5_password)
 #         if user:
 #             access_token = create_access_token(identity=username)
-#             return jsonify({"code": 0, "token": access_token, "msg": "恭喜，登录成功！"})
+#             return jsonify({"code": 0, "token": access_token, "msg": "恭喜，登录成功！"}),200
 #         return USER_LOGIN_FAIL, 401
 #     else:
 #         return USER_PARAM_NULL, 401
