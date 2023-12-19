@@ -16,6 +16,8 @@ def save_api_key(key):
 
 def get_api_key():
     key_list = []
+    if not os.path.exists(api_key_file):
+        return key_list
     with open(api_key_file, 'r') as f:
         for line in f:
             key_list.append(line.strip())

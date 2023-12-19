@@ -12,4 +12,4 @@ sys.path.insert(0, BASE_PATH)
 if __name__ == '__main__':
     route.init()
     # db.create_all()
-    app.run(host="localhost", port=SERVER_PORT, debug=True)
+    app.run(host="0.0.0.0", port=SERVER_PORT, debug=True)
