@@ -11,5 +11,6 @@ sys.path.insert(0, BASE_PATH)
 
 if __name__ == '__main__':
     route.init()
+    route.api.apikeys.init_key_cache()
     # db.create_all()
     app.run(host="0.0.0.0", port=SERVER_PORT, debug=True)
