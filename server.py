@@ -1,8 +1,7 @@
 import os
 import sys
 import route
-import model
-from app import app, db
+from app import app
 from config.setting import SERVER_PORT
 
 # 项目根路径
