@@ -4,7 +4,7 @@ from storage import api_key
 
 
 def auth():
-    key = request.json.get("api_key", "").strip()
+    key = request.json["parameters"].get("api_key", "").strip()
     if not key:
         return jsonify({"msg": "no api Key"}), 401
 
