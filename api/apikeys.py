@@ -22,6 +22,17 @@ def auth():
         return jsonify({"msg": "no matched Key"}), 401
 
 
+def auth_bs():
+    key = request.json["api_key"]
+    if not key:
+        return jsonify({"msg": "no api Key"}), 401
+
+    if key_cache.get(key):
+        return jsonify({"msg": "Certification Success"}), 200
+    else:
+        return jsonify({"msg": "no matched Key"}), 401
+
+
 def generate_api_key():
     key = secrets.token_hex(32)
     api_key.save_api_key(key)
